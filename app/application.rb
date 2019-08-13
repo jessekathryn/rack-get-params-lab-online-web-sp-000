@@ -22,7 +22,10 @@ class Application
     end
     
     elsif req.path.match(/add/)
+     item = req.params["item"]
       if @@items.include?(req.params["item"])
+        @@cart << item
+      else 
         
     
     elsif req.path.match(/search/)
