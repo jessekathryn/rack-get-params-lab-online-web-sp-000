@@ -26,7 +26,8 @@ class Application
       if @@items.include?(req.params["item"])
         @@cart << item
       else 
-        
+        resp.write "Your cart is empty"
+      end
     
     elsif req.path.match(/search/)
       search_term = req.params["q"]
