@@ -13,11 +13,11 @@ class Application
       end
     elsif req.path.match(/cart/)
       @@cart.each do |cart|
-        resp.write "#{cart}\n"
+        resp.write "Your #{cart}\n"
       end 
-    elsif !req.path.match(/cart/)
-      @@cart.each do |cart|
-        resp.write "Your #{cart} is empty\n"
+    elsif req.path.match(/cart/)
+      @@cart.detect do |cart|
+        resp.write "We don't #{cart} have that item\n"
       end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
