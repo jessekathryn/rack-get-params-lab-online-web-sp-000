@@ -16,7 +16,7 @@ class Application
         resp.write "Your #{cart}\n"
       end 
     elsif req.path.match(/cart/)
-      @@cart.detect do |cart|
+      @@cart.include? do |cart|
         resp.write "We don't #{cart} have that item\n"
       end
     elsif req.path.match(/search/)
