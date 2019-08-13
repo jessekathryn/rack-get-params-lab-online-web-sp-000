@@ -12,6 +12,7 @@ class Application
         resp.write "#{item}\n"
       end
     elsif req.path.match(/cart/)
+     #look up unless statement or ternator operative 
      if @@cart.empty?
         resp.write "Your cart is empty\n"
      else 
