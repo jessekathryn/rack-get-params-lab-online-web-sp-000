@@ -12,13 +12,10 @@ class Application
         resp.write "#{item}\n"
       end
     elsif req.path.match(/cart/)
-      @@cart.each do |cart|
+      @@cart.empty.each do |cart|
         resp.write "Your #{cart}\n"
       end 
-    elsif req.path.match(/cart/)
-      @@cart.include? do |cart|
-        resp.write "We don't #{cart} have that item\n"
-      end
+    #end
     elsif req.path.match(/search/)
       search_term = req.params["q"]
       resp.write handle_search(search_term)
